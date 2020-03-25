@@ -7,6 +7,7 @@ RUN sudo apt-get install emacs-nox man2html --yes \
  && make doc -C bap \
  && mkdir -p .ssh \
  && printf "$MY_SSH_PRIVATE" > ~/.ssh/id_rsa \
+ && cat ~/.ssh/id_rsa \
  && chmod 400 ~/.ssh/id_rsa \
  && git clone git@github.com:gitoleg/binaryanalysisplatform.github.io --no-checkout --single-branch --branch=master --depth=1 blog \
  && cd blog \
