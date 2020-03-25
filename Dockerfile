@@ -1,6 +1,7 @@
 FROM binaryanalysisplatform/bap:latest as base
 
 RUN git clone https://github.com/BinaryAnalysisPlatform/bap \
+ && eval $(opam env) \
  && make doc -C bap \
  && mkdir -p .ssh \
  && cat $SSH_PRIVATE > ~/.ssh/id_rsa \
