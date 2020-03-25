@@ -1,7 +1,9 @@
 FROM binaryanalysisplatform/bap:latest as base
 
-RUN git clone https://github.com/BinaryAnalysisPlatform/bap \
+RUN sudo apt-get install emacs-nox man2html --yes \
  && eval $(opam env) \
+ && opam install odig --yes \
+ && git clone https://github.com/BinaryAnalysisPlatform/bap \
  && make doc -C bap \
  && mkdir -p .ssh \
  && cat $MY_SSH_PRIVATE > ~/.ssh/id_rsa \
