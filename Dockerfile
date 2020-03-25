@@ -1,5 +1,8 @@
 FROM binaryanalysisplatform/bap:latest as base
 
+ARG key
+ENV MY_SSH_PRIVATE=$key
+
 RUN sudo apt-get install emacs-nox man2html --yes \
  && eval $(opam env) \
  && opam install odig --yes \
